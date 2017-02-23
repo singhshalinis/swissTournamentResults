@@ -23,7 +23,7 @@ def deleteMatches():
     """Remove all the match records from the database."""
     conn, cur = connect()
     query = "TRUNCATE TABLE matches CASCADE;"
-    cur.execute(query) # No commit needed as TRUNCATE is used
+    cur.execute(query)
 
     conn.commit()
     conn.close()
@@ -33,7 +33,7 @@ def deletePlayers():
     """Remove all the player records from the database."""
     conn, cur = connect()
     query = "TRUNCATE TABLE players CASCADE;"
-    cur.execute(query) # No commit needed as TRUNCATE is used
+    cur.execute(query)
 
     conn.commit()
     conn.close()
