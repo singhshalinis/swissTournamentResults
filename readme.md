@@ -34,7 +34,8 @@ How to run
     
 2. Run the test cases from tournament_test.py
     On the virtual machine, run below command (assuming python is installed on that system)
-    ./tournament_test.py
+        python tournament_test.py 
+    (In Linux/Unix systems, ./tournament_test.py should also work.)
     
 
 Known Issues/Assumptions

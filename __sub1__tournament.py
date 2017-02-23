@@ -15,27 +15,23 @@ def connect(database_name="tournament"):
         conn = psycopg2.connect("dbname={}".format(database_name))
         cursor = conn.cursor()
         return conn, cursor
-    except:
-        print "Unexpected Error!"
+    except DatabaseError as e:
+        print "Database Error: ", str(e)
+    except Exception as e:
+        print "Unexpected Error!", str(e)
 
 
 def deleteMatches():
     """Remove all the match records from the database."""
     conn, cur = connect()
-    query = "TRUNCATE TABLE matches CASCADE;"
-    cur.execute(query) # No commit needed as TRUNCATE is used
-
-    conn.commit()
+    cur.execute("TRUNCATE matches CASCADE;") # No commit needed as TRUNCATE is used
     conn.close()
 
 
 def deletePlayers():
     """Remove all the player records from the database."""
     conn, cur = connect()
-    query = "TRUNCATE TABLE players CASCADE;"
-    cur.execute(query) # No commit needed as TRUNCATE is used
-
-    conn.commit()
+    cur.execute("TRUNCATE players CASCADE;") # No commit needed as TRUNCATE is used
     conn.close()
 
 

@@ -28,7 +28,7 @@ CREATE TABLE players (
 
 --Contains list of match id, winner and loser player ids
 CREATE TABLE matches (
-    m_id SERIAL,
+    m_id SERIAL PRIMARY KEY,
     winner_p_id SERIAL REFERENCES players(p_id),
     loser_p_id SERIAL REFERENCES players(p_id)
 );
